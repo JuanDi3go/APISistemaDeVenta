@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SistemaDeVenta.DAL.Context;
 using SistemaDeVenta.DAL.Interfaces;
 using SistemaDeVenta.DAL.Repositories;
+using System.Reflection;
 
 namespace SistemaDeVenta.IOC
 {
@@ -15,6 +16,12 @@ namespace SistemaDeVenta.IOC
 
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IVentaRepository, VentaRepository>();
+
+            #region Automapper
+
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            #endregion
 
         }
     }
