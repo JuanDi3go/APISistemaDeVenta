@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SistemaDeVenta.BLL.Servicios.Implementations;
+using SistemaDeVenta.BLL.Servicios.Interfaces;
 using SistemaDeVenta.DAL.Context;
 using SistemaDeVenta.DAL.Interfaces;
 using SistemaDeVenta.DAL.Repositories;
@@ -22,6 +24,20 @@ namespace SistemaDeVenta.IOC
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             #endregion
+
+            #region Services
+
+            services.AddScoped<IRolService, RolService>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<ICategoriaService, CategoriaService>();
+            services.AddScoped<IProductoService, ProductoService>();
+            services.AddScoped<IVentaService, VentaService>();
+            services.AddScoped<IDashBoardService, DashBoardService>();
+            services.AddScoped<IMenuService, MenuService>();
+
+
+            #endregion
+
 
         }
     }
