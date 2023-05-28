@@ -6,7 +6,7 @@ using SistemaDeVenta.BLL.Servicios.Interfaces;
 using SistemaDeVenta.DAL.Context;
 using SistemaDeVenta.DAL.Interfaces;
 using SistemaDeVenta.DAL.Repositories;
-using System.Reflection;
+using SistemaDeVenta.Utility;
 
 namespace SistemaDeVenta.IOC
 {
@@ -21,7 +21,7 @@ namespace SistemaDeVenta.IOC
 
             #region Automapper
 
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddAutoMapper(typeof(AutomapperProfile));
 
             #endregion
 

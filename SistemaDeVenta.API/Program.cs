@@ -15,6 +15,14 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddInversionOfControlLayer(builder.Configuration);
 
+builder.Services.AddCors(op =>
+{
+    op.AddPolicy("NuevaPolitica", app =>
+    {
+        app.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
 
 var app = builder.Build();
 
@@ -26,6 +34,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("NuevaPolitica");
 
 app.UseAuthorization();
 
